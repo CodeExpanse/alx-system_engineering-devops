@@ -1,2 +1,11 @@
-0 string HOLBERTON Holberton data
-!:mime Holberton
+#!/bin/bash
+
+# Create a temporary file to store the magic pattern
+TMP_FILE=$(mktemp)
+echo "0 string SCHOOL School data file" > "$TMP_FILE"
+
+# Compile the magic file
+file -C -m "$TMP_FILE" -o school.mgc
+
+# Remove the temporary file
+rm "$TMP_FILE"
