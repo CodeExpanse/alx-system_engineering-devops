@@ -1,3 +1,2 @@
 #!/bin/bash
-shopt -s globstar nullglob
-ls -Q **/*.gif | grep -oP '^[^"]+' | sed 's/\.[^.]*$//' | LC_ALL=C sort -f  
+find . -type f -iname '*.gif' -printf "%f\n" | awk -F. '{print $1}' | LC_ALL=C sort -f
