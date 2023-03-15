@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%o\n" $(( $((5#$(echo $WATER | tr water 01234))) + $((5#$(echo $STIR | tr stir. 01234))) )) | tr 01234567 behlnort
+WATER=$WATER STIR=$STIR; BEST=$(echo "obase=27; $(echo $WATER | tr '[:lower:]' '[:upper:]' | tr -d '.' | tr -cd '[:alnum:]' | tr 'A-Z' '1-9A-Q') + $(echo $STIR | tr '[:lower:]' '[:upper:]' | tr -d '.' | tr -cd '[:alnum:]' | tr 'A-Z' '1-9A-Q')" | bc | tr '0-9A-Q' 'zabcdefghijklmnopqrstuvwxy'); echo $BEST
